@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Tube</title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+  <div id="main">
+    <% include ../partials/nav.ejs %>
+      <div id="fixmain">
+        <% include ../partials/sidenav.ejs %>
+          <div id="allvideos">
+            <% allvideos.reverse().forEach(function(video){ %>
+              <div class="card mt-5"
+                style="width: 24rem; background-color: transparent; color: #fff; border: 1px solid #333;">
+                <a href="/watch/<%= video._id %>">
+                  <div id="videocard">
+                    <video class="video" src="/getvideo/<%=video.video%>" muted></video>
+                  </div>
+                </a>
+                <div class="card-body">
+                  <a href="/watch/<%= video._id %>">
+                    <p style="height: 50px; overflow: hidden;" class="card-text mb-2">
+                      <%=video.tittle %>
+                    </p>
+                  </a>
+                  <a href="/user/<%= video.userid.name %>">
+                    <div class="uploadUsername">
+                      <div id="uploaduseralldets">
+                        <div id="uploadUserprofile">
+                          <img src="/getFile/<%=video.userid.profileimg%>" alt="">
+                        </div>
+                        <h5 style="opacity: 0.8;">
+                          <%=video.userid.channelname %>
+                        </h5>
+                      </div>
+                      <% if(loginuser.name===video.userid.name){ %>
+
+                        <% } else { %>
+                          <% if(loginuser.watchlater.indexOf(video._id)===-1){ %>
+                            <a href="/watchlater/<%=video.id%>">
+                              <i style="font-size: 25px;" title="watch later" class="ri-timer-2-line"></i>
+                            </a>
+                            <% } else{ %>
+                              <a href="/removefromwatchlater/<%=video.id%>">
+                                <i style="font-size: 25px;" title="Remove from watch later" class="ri-close-line"></i>
+                              </a>
+                              <% } %>
+                                <% } %> %>
+
+                    </div>
+                </div>
+              </div>
+              <% }) %>
+          </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
+
+  <script>
+    const myVideo = document.querySelectorAll('.video');
+
+    myVideo.forEach(function (videos) {
+      videos.addEventListener('mouseover', function () {
+        videos.play();
+      })
+
+      videos.addEventListener('mouseout', function () {
+        videos.pause();
+        videos.currentTime = 0;
+      });
+
+    })
+
+  </script>
+
+</body>
+</html>

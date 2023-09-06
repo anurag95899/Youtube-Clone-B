@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+
+a{
+    text-decoration: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+#main{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+#allsubscriber{
+    width: 100%;
+    height: 100vh;
+    /* background-color: red; */
+    margin-left: 16vw;
+    padding: 2vh;
+    margin-top: 5vw;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 20px;
+}
+#allsubscriber h1{
+    width: fit-content;
+    height: fit-content;
+    padding-bottom: 2px;
+    margin-bottom: 5vh;
+    font-size: 30px;
+    border-bottom: 1px solid #fff;
+}
+#allsubscribername{
+    width: 100%;
+    margin-left: 25vw;
+    /* background-color: red; */
+}
+#allsubscribername h3{
+    text-decoration: none;
+}
+#subscriberimg{
+    width: 5vw;
+    height: 5vw;
+    /* background-color: red; */
+    border-radius: 50%;
+    overflow: hidden;
+}
+#subscriberimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#subscriberdets{
+    width: 23vw;
+    height: 85vh;
+    padding: 2vh;
+    background-color:rgba(255, 194, 169, 0.463);
+    border-radius: 20px;
+    display: flex;
+    /* align-items: center; */
+    position: fixed;
+    flex-direction: column;
+
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}

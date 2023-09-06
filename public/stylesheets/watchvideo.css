@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    width: 100%;
+    /* min-height: 200vh; */
+    position: relative;
+    overflow: hidden;
+    background-color: #0F0F0F;
+    /* background-color: red; */
+}
+
+#video {
+    position: relative;
+    width: 60%;
+    height: 70vh;
+    z-index: 9999;
+    margin-top: 13vh;
+    position: relative;
+    overflow: hidden;
+    margin-left: 10vh;
+    border-radius: 10px;
+    /* border: 1px solid #b6b6b68a; */
+    /* background-color: red; */
+}
+
+#video video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: initial;
+}
+
+#videodets {
+    padding-top: 2vh;
+    width: 60%;
+    padding-left: 10px;
+    /* height: 20vh; */
+    margin-left: 10vh;
+    /* background-color: red; */
+}
+
+#videotittle {
+    width: 100%;
+    /* height: 70px; */
+    overflow: hidden;
+    /* background-color: green; */
+}
+
+
+
+#videouserdets {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20vh;
+}
+#videouser {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#videouserprofile {
+    width: 4vw;
+    height: 4vw;
+    /* background-color: yellow; */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#videouserprofile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#like i{
+    font-size: 25px;
+    border: 1px solid #d4d4d4;
+    padding: 8px 30px;
+    border-radius: 10px;
+}
+#comments{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#comments h5{
+    text-transform: capitalize;
+    font-size: 4vh;
+    margin-bottom: 20px;
+}
+#comments input{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #747474;
+    color: #fff;
+    padding: 20px;
+    outline: none;
+    font-size: 20px;
+}
+
+#commenteduser{
+    width: 7vh;
+    height: 7vh;
+    /* background-color: red; */
+    border-radius: 50%;
+    overflow: hidden;
+}
+#commenteduser img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

@@ -1,0 +1,86 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: gilroy;
+	color: #ffff;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+#main{
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	background-color: #000;
+}
+#loginpage{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	/* background-color: red; */
+}
+#loginpic{
+	width: 50%;
+	height: 100%;
+	background-image: url(../images/register-access-login-password-internet-online-website-concept-flat-illustration_385073-108-removebg-preview.png);
+	background-position: center;
+	background-size: cover;
+}
+#loginform{
+	width: 50%;
+	height: 100%;
+	padding: 10vh;
+	padding-top: 20vh;
+	/* background-color: pink; */
+}
+#loginform h1{
+	/* background-color: red; */
+	margin-bottom: 5vh;
+	/* text-align: center; */
+	width: fit-content;
+	margin-left: 10vh;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ddddddbe;
+}
+#loginform input{
+	padding: 10px;
+	border: none;
+	border-bottom:  1px solid #6d6d6d;
+	width: 70%;
+	outline: none;
+	background-color: transparent;
+	color: #fff;
+
+}
+#loginform form>button{
+	width: 70%;
+	margin-top: 3vh;
+	border: none;
+}
+#forgetORcreate{
+	/* background-color: red; */
+	padding:0 20px;
+	width: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+#forgetORcreate a{
+	text-decoration: none;
+}
+#loginform a button{
+	width: 50%;
+	margin-top: 3vh;
+	border: none;
+	margin-left: 8vh;
+}
+
+#loginform a{
+	text-decoration: none;
+}
+

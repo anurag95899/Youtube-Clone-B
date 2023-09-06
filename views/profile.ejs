@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%=loginuser.username %></title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/profile.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div style="background-color: rgb(78, 78, 78); padding: 10px;" class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Change Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <input id="file" name="filename" class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="main">
+    <% include ../partials/nav.ejs %>
+      <div id="fixmain">
+        <% include ../partials/sidenav.ejs %>
+          <div id="profiledets">
+            <div id="top">
+              <div style="position: relative;" id="profileimg">
+                <img src="/getFile/<%=loginuser.profileimg %>" alt="">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <i class="ri-edit-line"></i>
+                </button>
+              </div>
+              <div id="profiledes">
+                <h2>
+                  <%=loginuser.name %>
+                </h2>
+                <h4>
+                  <%=loginuser.channelname %>
+                </h4>
+                <h6>
+                  <%=loginuser.subscriber.length %> subscriber
+                </h6>
+                <div id="editLogout">
+                  <a href="/editprofile"><button>Edit</button></a>
+                  <a href="/logout"><button>Logout</button></a>
+                </div>
+              </div>
+            </div>
+            <h1 class="uplod">Uploaded Videos</h1>
+            <div id="myuploadvideos">
+              <% loginuser.videos.forEach(function(video){ %>
+                <div class="card mt-2"
+                  style="width: 23rem; background-color: transparent; color: #fff; border: 1px solid #333;">
+                  <div id="videocard">
+                    <video src="/getvideo/<%=video.video%>"></video>
+                  </div>
+                  <div class="card-body">
+                    <p style="height: 50px; overflow: hidden;" class="card-text mb-3">
+                      <%= video.tittle %>
+                    </p>
+                      <a href="/delete/<%= video._id%>">
+                        <button type="submit" class="btn btn-danger">Delete Video</button>
+                      </a>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+      </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
+</body>
+</html>

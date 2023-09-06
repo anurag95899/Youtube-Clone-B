@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: gilroy;
+}
+a{
+    text-decoration: none;
+    color: #fffF;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+#watchvideo{
+    margin-left: 15vw;
+    margin-top: 6vh;
+    width: 100%;
+    padding: 0vh 5vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+}
+#newwatchlater{
+    width: 23vw;
+    height: 85vh;
+    padding: 2vh;
+    background-color:rgba(255, 194, 169, 0.463);
+    border-radius: 20px;
+    display: flex;
+    /* align-items: center; */
+    position: fixed;
+    flex-direction: column;
+
+}
+#allwatchlater{
+    width: 75vw;
+    /* background-color: yellow; */
+    min-height: 100vh;
+    margin-left: 20vw;
+    padding: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+#watchlatervideos{
+    display: flex;
+    /* align-items: center; */
+    gap: 20px;
+}
+#watcglaterRemove{
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+.card video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}

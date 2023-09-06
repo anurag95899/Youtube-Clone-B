@@ -1,0 +1,82 @@
+<div id="nav">
+    <a href="">
+        <i class="ri-menu-line"></i>
+    </a>
+    <a href="/mytube">
+        <h1>My Tube</h1>
+    </a>
+    <form action="searchUser" method="post">
+        <input id="secrchinput" type="search" name="Search" placeholder="Search..">
+    </form>
+    <a href="/videouploads"> <i title="upload" class="ri-video-add-line"></i></a>
+    <a href="">
+        <a href="/profile">
+            <div id="profile">
+                <img src="/getfile/<%=loginuser.profileimg %>" alt="">
+            </div>
+        </a>
+    </a>
+</div>
+<div id="search">
+    <div id="searchResult">
+
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+
+    document.querySelector("#secrchinput")
+        .addEventListener("input", function (elem) {
+            var inputValue = elem.target.value.trim();
+            if (inputValue.length === 0) {
+                document.querySelector("#search").style.opacity = 0
+                document.querySelector("#search").style.display = "none"
+            } else {
+                document.querySelector("#search").style.opacity = 1
+                document.querySelector("#search").style.display = "flex"
+            }
+        })
+
+    // ritik_js
+
+    $("form").submit(function (event) {
+        event.preventDefault();
+        var search = $("#search").val();
+
+        $.ajax({
+            url: "/searchUser",
+            type: "POST",
+            data: {
+                search: search,
+            },
+            success: function (response) {
+                if (response.success) {
+                    $("#searchResult").html("");
+                    $("#search").val("");
+                    let user = response.data;
+                    user.forEach(function (user) {
+                        console.log(user.video);
+
+                        var a = document.createElement("a");
+                        a.href = `/user/${user.name}`;
+                        var div = document.createElement("div");
+                        div.classList.add("user");
+                        var i = document.createElement("i");
+                        i.classList.add("ri-search-line");
+                        var h4 = document.createElement("h4");
+                        h4.textContent = user.channelname;
+                        div.append(i)
+                        div.appendChild(h4);
+                        a.appendChild(div);
+                        $("#searchResult").append(a);
+                    });
+                }
+            },
+        });
+    });
+
+    // ritik_js
+
+
+</script>
